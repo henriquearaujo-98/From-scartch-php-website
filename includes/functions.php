@@ -87,14 +87,14 @@
 
 				if(mysqli_num_rows($result) > 0){
 					while($row = mysqli_fetch_assoc($result)){
-						$_SESSION['ID'] = $row['ID'];
+						$_SESSION['mock_ID'] = $row['ID'];
 					}
 				}
 
-				$_SESSION['email']=$email;
-				$_SESSION['name']=$name;
-				$_SESSION['permission'] = ValidatePermission($permission);
-				echo $_SESSION['ID'];
+				$_SESSION['mock_email']=$email;
+				$_SESSION['mock_name']=$name;
+				$_SESSION['mock_permission'] = ValidatePermission($permission);
+				echo $_SESSION['mock_ID'];
                 mysqli_close($conn);
 				return;
 			}else{
@@ -152,10 +152,10 @@
 					//session_start();
 					//setcookie('email', $email, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-					$_SESSION['email']=$email;
-					$_SESSION['name']=$name;
-					$_SESSION['ID'] = $ID;
-					$_SESSION['role'] = ValidatePermission($role);
+					$_SESSION['mock_email']=$email;
+					$_SESSION['mock_name']=$name;
+					$_SESSION['mock_ID'] = $ID;
+					$_SESSION['mock_role'] = ValidatePermission($role);
 					
 					echo $ID;
 				}else{
@@ -188,8 +188,8 @@
 	if(isset($_POST['deleteFromTable'])){
 		error_reporting(E_ERROR | E_PARSE);
 
-		if(isset($_SESSION['role'])){
-		    if($_SESSION['role'] != 'admin'){
+		if(isset($_SESSION['mock_role'])){
+		    if($_SESSION['mock_role'] != 'admin'){
 		        echo -1;
 		        return;
             }
@@ -248,8 +248,8 @@
 	//			   (dashboard)
 	if(isset($_POST['AcceptUser'])){
 
-	    if(isset($_SESSION['role'])){
-	        if($_SESSION['role'] != 'admin'){
+	    if(isset($_SESSION['mock_role'])){
+	        if($_SESSION['mock_role'] != 'admin'){
 	            echo -1;
 	            mysqli_close($conn);
 	            return;
@@ -402,8 +402,8 @@
 	/*---------- Edit User -------------*/
 	if(isset($_POST['dashboard_EditUser'])){
 
-	    if(isset($_SESSION['role'])){
-	        if($_SESSION['role'] != 'admin'){
+	    if(isset($_SESSION['mock_role'])){
+	        if($_SESSION['mock_role'] != 'admin'){
 	            echo -1;
                 return;
             }
@@ -562,8 +562,8 @@
 					$hour = $_POST['hour'];
 					$minute = $_POST['minute'];
 
-					$AuthorID = $_SESSION['ID'];
-					$AuthorName = $_SESSION['name'];
+					$AuthorID = $_SESSION['mock_ID'];
+					$AuthorName = $_SESSION['mock_name'];
 
 					$phptime = mktime($hour,$minute,0,$month,$day,$year); //[h:m:s:mês:dia:ano]
 					$mysqltime = date ('Y-m-d H:i:s', $phptime);
@@ -588,8 +588,8 @@
 
 	if(isset($_POST['editBlogPost'])){
 
-	    if(isset($_SESSION['role'])){
-	        if($_SESSION['role'] != 'admin'){
+	    if(isset($_SESSION['mock_role'])){
+	        if($_SESSION['mock_role'] != 'admin'){
 	            echo -1;
 	            return;
             }
@@ -663,8 +663,8 @@
 
 	if(isset($_POST['dashboard_createForumTopic'])){
 
-	    if(isset($_SESSION['role'])){
-	        if($_SESSION['role'] != 'admin'){
+	    if(isset($_SESSION['mock_role'])){
+	        if($_SESSION['mock_role'] != 'admin'){
 	            echo -2;
 	            return;
             }
@@ -772,8 +772,8 @@
 		if(isset($_POST['commentBlogPost'])){
 			$Content = $_POST['commentContent'];
 			$PostID = $_POST['postID'];
-			$AuthorID = $_SESSION['ID'];
-			$AuthorName = $_SESSION['name'];
+			$AuthorID = $_SESSION['mock_ID'];
+			$AuthorName = $_SESSION['mock_name'];
 
 			$query = "INSERT INTO `blog_comment`(`content`, `blog_post_ID`, `user_ID`) 
                         VALUES ('$Content','$PostID','$AuthorID')";
@@ -800,8 +800,8 @@
 		$topic = $_POST['topic'];
 		$title = $_POST['title'];
 		$content = $_POST['content'];
-		$authorName = $_SESSION['name'];
-		$authorID = $_SESSION['ID'];
+		$authorName = $_SESSION['mock_name'];
+		$authorID = $_SESSION['mock_ID'];
 		$file_name = '';
 
 		if(isset($_FILES['file']['name'])){
@@ -889,8 +889,8 @@
 
 	//Reply to thread
 	if(isset($_POST['forum_reply_thread'])){
-		$authorID = $_SESSION['ID'];
-		$authorName = $_SESSION['name'];
+		$authorID = $_SESSION['mock_ID'];
+		$authorName = $_SESSION['mock_name'];
 		$content = $_POST['content'];
 		$threadID = $_POST['threadID'];
 
@@ -963,7 +963,7 @@
 	//Get if user has a session initiated
 	if(isset($_GET['check_user_session'])){
 
-		if(isset($_SESSION['ID']))
+		if(isset($_SESSION['mock_ID']))
 			echo 0;
 		else
 			echo 1;
@@ -1000,7 +1000,7 @@
 
 	if(isset($_POST['profile_editInfo'])){
 
-		$ID = $_SESSION['ID'];
+		$ID = $_SESSION['mock_ID'];
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -1025,7 +1025,7 @@
 
 		//Check if email is already registered
 
-		if($email != $_SESSION['email']){
+		if($email != $_SESSION['mock_email']){
 			$query = "SELECT  email FROM `user` WHERE `email` = '$email'";
 
 			$result = mysqli_query($conn, $query);
@@ -1101,7 +1101,7 @@
 
 	if(isset($_POST['profile_submitBio'])){
 		$content = $_POST['content'];
-		$ID = $_SESSION['ID'];
+		$ID = $_SESSION['mock_ID'];
 
 		if(!empty($content)){
 			$content = ValidatedForm($content);

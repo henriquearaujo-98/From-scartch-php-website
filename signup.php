@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 
-if(isset($_SESSION['email'])){
+if(isset($_SESSION['mock_email'])){
 	header('Location: index.php');
 }else{
 

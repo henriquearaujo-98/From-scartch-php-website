@@ -33,15 +33,15 @@ if(isset($_GET['bpid'])){
 	Header("Location: includes/404.php");
 }
 
-if($released == 1 && $_SESSION['role'] === 'user'){
+if($released == 1 && $_SESSION['mock_role'] === 'user'){
 	Header("Location: includes/404.php");
-}else if($released == 1 && $_SESSION['role'] === 'sim'){
+}else if($released == 1 && $_SESSION['mock_role'] === 'sim'){
 	echo "WARNING: This post is not yet released to the public.";
 }
-if(isset($_GET['editbp']) && isset($_SESSION['role'])){
+if(isset($_GET['editbp']) && isset($_SESSION['mock_role'])){
 
 
-    if ($_SESSION['role'] != 'user') {
+    if ($_SESSION['mock_role'] != 'user') {
 ?>
         <div class="container">
 	<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = 'post' id="edit_blog_post_form">
@@ -90,8 +90,8 @@ if(isset($_GET['editbp']) && isset($_SESSION['role'])){
 
 
     <?php
-    if(isset($_SESSION['ID'])){
-        if($_SESSION['role'] != 'user'){
+    if(isset($_SESSION['mock_ID'])){
+        if($_SESSION['mock_role'] != 'user'){
             ?>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <button type="button" class="btn btn-danger">Delete</button>
@@ -142,11 +142,11 @@ if(isset($_GET['editbp']) && isset($_SESSION['role'])){
 	</div>
 	<br><br>
 
-<?php if(isset($_SESSION['name'])){  ?>
+<?php if(isset($_SESSION['mock_name'])){  ?>
 	<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = 'post' id="blog_post_comment_form">
 		<span>Leave a comment:</span><br>
   		<input type="text" name="comment" id="blog_post_comment_text"><br>
-  		<input type="hidden" name="name" id="blog_post_comment_authorname" value="<?php echo $_SESSION['name']; ?>" />
+  		<input type="hidden" name="name" id="blog_post_comment_authorname" value="<?php echo $_SESSION['mock_name']; ?>" />
   		<br><br>
   		<input type="submit" name="leaveacomment" value="Comment" id="blog_post_comment_submit">
   	</form>

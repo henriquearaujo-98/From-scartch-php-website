@@ -7,7 +7,7 @@ if(!isset($_GET['ftopic'])){
 <div class="container">
 	<h1 style="margin-top: 60px">Forum</h1>
 	<hr>
-<?php if(isset($_SESSION['email'])){ ?>
+<?php if(isset($_SESSION['mock_email'])){ ?>
 	 <div class="container">
     	<a href="forum_create_thread.php" class="btn btn-info">Create a new thread</a>
 <?php }else{ ?>

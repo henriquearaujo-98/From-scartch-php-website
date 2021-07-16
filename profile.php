@@ -57,7 +57,7 @@ if(isset($_GET['userid'])){
 	
 
 <?php
-		if(isset($_SESSION['ID']) && $_GET['userid'] == $_SESSION['ID']){ ?>
+		if(isset($_SESSION['mock_ID']) && $_GET['userid'] == $_SESSION['mock_ID']){ ?>
 			<button id='profile_settings_trigger' class='btn btn-primary'>Settings</button>
 
 			<section id='profile_show_account_settings' style="display: none;">
@@ -69,9 +69,9 @@ if(isset($_GET['userid'])){
       						<div class="col col-4">
 					        	<form onsubmit="return false">
 					        		<label>Email</label><br>
-					        		<input type="text" name="email" id='profile_edit_email' placeholder="<?php echo $_SESSION['email']; ?>"><br>
+					        		<input type="text" name="email" id='profile_edit_email' placeholder="<?php echo $_SESSION['mock_email']; ?>"><br>
 					        		<label>Name</label><br>
-					        		<input type="text" name="name" id='profile_edit_name' placeholder="<?php echo $_SESSION['name']; ?>"><br>
+					        		<input type="text" name="name" id='profile_edit_name' placeholder="<?php echo $_SESSION['mock_name']; ?>"><br>
 					        		<label>New Password</label><br>
 					        		<input type="password" name="Password" id='profile_edit_password'><br>
 					        		<label>Retype your new password</label><br>

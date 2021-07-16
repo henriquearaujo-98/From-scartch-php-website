@@ -37,9 +37,9 @@ if(isset($_GET['threadID'])){
 ?>
 <div style="margin: 25px">
 <?php
-if(isset($_SESSION['role']) || isset($_SESSION['ID']))
+if(isset($_SESSION['mock_role']) || isset($_SESSION['mock_ID']))
 {
-	if($_SESSION['role'] != 'user'|| $_SESSION['ID'] == $authorID){
+	if($_SESSION['mock_role'] != 'user'|| $_SESSION['mock_ID'] == $authorID){
 		echo "<button class='btn btn-danger' id='admin_delete_thread_".$threadID."'>Eliminar</button>";
 		if($status == 0)
 			echo "<button class='btn btn-warning' style='color:white' id='admin_close_thread_".$threadID."'>Close</button>";
@@ -70,7 +70,7 @@ if(isset($_SESSION['role']) || isset($_SESSION['ID']))
 
 
 <?php
-	if(isset($_SESSION['email']) && $status == 0){
+	if(isset($_SESSION['mock_email']) && $status == 0){
 ?>
 	<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = 'post' id="forum_reply_form">
         <span><b>Reply to this thread</b></span><br>

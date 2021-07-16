@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 
-if(!isset($_SESSION['email'])){
+if(!isset($_SESSION['mock_email'])){
 	echo "<small><span>You must be <a href='login.php'>logged in</a> to create a new thread.<br> Don't have an account? Sign up <a href='signup.php'>here</a></span></small><br>";
 	return;
 }
@@ -62,7 +62,7 @@ if(!isset($_GET['editThread'])){
 				}
 		}
 
-		if($author_id != $_SESSION['ID'] || $_SESSION['permission'] == 'user'){
+		if($author_id != $_SESSION['mock_ID'] || $_SESSION['mock_role'] == 'user'){
 			header("Location: index.php");
 			die();
 			return;

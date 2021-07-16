@@ -1,11 +1,11 @@
 <?php
 include 'includes/header.php';
 
-if(!isset($_SESSION['email'])){				//Vemos primeiro se o utilizador está loggado
+if(!isset($_SESSION['mock_email'])){				//Vemos primeiro se o utilizador está loggado
 	Header("Location: index.php");
 }
 
-$email = $_SESSION['email'];
+$email = $_SESSION['mock_email'];
 
 $query = "SELECT role FROM user WHERE email = '$email'";		//Conferimos na base de dados se o utilizador tem permissão
 																	//Vamos diretamente á BD porque as session variables são alvo de ataque
@@ -21,7 +21,7 @@ if(mysqli_num_rows($result) > 0){
 		Header("Location: index.php");
 	}
 }else{
-	echo 'no results for '. $_SESSION['email'];
+	echo 'no results for '. $_SESSION['mock_email'];
 	Header("Location: index.php");
 }
 ?>

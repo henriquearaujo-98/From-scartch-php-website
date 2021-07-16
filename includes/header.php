@@ -13,34 +13,7 @@
 
 </head>
 <body>
-<!-- <div id='backToTop' class='btn btn-primary'><span>&#8249;</span></div>
- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navigation w-nav">
-    <div class="navigation-items">
-      <div class="navigation-wrap">
-        <nav role="navigation" class="navigation-items w-nav-menu">
-          <a href="index.php" class="navigation-item w-nav-link">Inicio</a>
-          <a href="manifesto.php" aria-current="page" class="navigation-item w-nav-link w--current">Manifesto</a>
-          <a href="blog.php" class="navigation-item w-nav-link">Blog</a>
-          <a href="forum.php" class="navigation-item w-nav-link">Forum</a>
-          
-          <?php/* if(isset($_SESSION['ID'])){
-              echo "<a href='profile.php?userid=".$_SESSION['ID']."' class='navigation-item w-nav-link'>".$_SESSION['name']."</a>";
-              echo "<a href='index.php' class='navigation-item w-nav-link' id='logoutBTN'>Log out</a>";
-              if($_SESSION['permission'] == 'admin' || $_SESSION['permission'] == 'mod')
-                echo "<a href='dashboard.php' class='navigation-item w-nav-link'>Dashboard</a>";
-          }else{
-              echo "<a href='login.php' class='navigation-item w-nav-link'>Log in</a>";
-              echo "<a href='signup.php' class='navigation-item w-nav-link'>Registo</a>";
-          } */?>
-        </nav>
-        <div class="menu-button w-nav-button">
-          <img src="images/menu-icon_1menu-icon.png" width="22" alt="" class="menu-icon">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-</div>-->
+
     <div class="back-to-personal">
         <a href="https://henriquearaujo.pt/">Go back to henriquearaujo.pt</a>
     </div>
@@ -59,18 +32,18 @@
 
               <div class="text-end">
                   <?php
-                  if(!isset($_SESSION['ID'])){
+                  if(!isset($_SESSION['mock_ID'])){
                   ?>
                       <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                       <a href="signup.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                   <?php
                   }else{
                   ?>
-                      <a href="<?='profile.php?userid='.$_SESSION['ID']?>"><button type="button" class="btn btn-warning"><?=$_SESSION['name']?></button></a>
+                      <a href="<?='profile.php?userid='.$_SESSION['mock_ID']?>"><button type="button" class="btn btn-warning"><?=$_SESSION['mock_name']?></button></a>
                       <a href='index.php' class='navigation-item w-nav-link' id='logoutBTN'><button type="button" class="btn btn-danger">Log out</button></a>
 
                   <?php
-                      if($_SESSION['role'] != 'user'){
+                      if($_SESSION['mock_role'] != 'user'){
                           ?>
                             <a href="dashboard.php"><button type="button" class="btn btn-primary">Dashboard</button></a>
                           <?php
