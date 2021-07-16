@@ -1,0 +1,96 @@
+body{
+	font-size: 16px;
+
+	line-height: 1.5;
+
+	font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+
+	margin: 0;
+    height: 90%;
+  	padding: 0;
+
+}
+
+h1, h3{
+	color: lightgrey;
+}
+
+.container{
+	margin: auto;
+  	width: 50%;
+  	align-content: center;
+  	text-align: center;
+  	
+}
+
+.body-header{
+	height: 100vh;
+}
+
+
+#LaunchDate{
+	margin: 50px 0;
+}
+
+.cron{
+	text-align: center;
+	width: 90%;
+	margin: auto;
+}
+
+.cron-lable{
+	color: black;
+	font-weight: bold;
+	text-align: left;
+}
+
+.cron-value{
+	color:white;
+}
+
+#cron-body{
+	width: 50%; /* Can be in percentage also. */
+    height: auto;
+    margin: auto;
+    top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+    padding: 10px;
+    position: relative;
+    align-items: center;
+}
+
+#days, #hours, #minutes{
+	padding:15px 0;
+	background: rgb(9,9,9);
+	background: linear-gradient(0deg, rgba(9,9,9,0.1) 0%, rgba(20,20,20,0.3) 46%, rgba(61,61,61,0.1) 55%, rgba(56,56,56,0.1) 95%);
+	font-size: 2em;
+	text-shadow: black 0 0 3px;
+}
+
+#seconds{
+	padding:15px 0;
+	background: rgb(126,0,0);
+	background: linear-gradient(0deg, rgba(126,0,0,0.6) 0%, rgba(126,0,0,0.6) 46%, rgba(185,2,2,0.6) 55%, rgba(185,2,2,1) 95%);
+	font-size: 2em;
+	text-shadow: black 0 0 3px;
+}
+
+#footer-container{
+	position:absolute; 
+	height: 30px; 
+	width: 100vw;
+	bottom: 0; 
+	left: 0;
+	width: 300px;
+}
+
+#footer-info{
+	background: white;
+}
+
+@media only screen and (max-width: 1300px) {
+	#days, #hours, #minutes, #seconds{
+		width: 60px;
+	}
+}

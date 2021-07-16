@@ -1,0 +1,164 @@
+.blog_post_preview_content{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width : 100%;
+	position: relative;
+	max-height : 300px;
+}
+
+#dashboard_create_new_BPost_datetime{
+	margin-bottom: 15px;
+}
+
+#dashboard_create_new_BPost_title{
+	padding: 10px;
+	width: 100%;
+	margin-bottom: 5px
+}
+
+#dashboard_create_new_BPost_content{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.dashboard_categories_rows{
+
+	border-bottom: 1px solid black;
+}
+
+.dashboard-icon{
+	text-decoration: none;
+}
+
+.dashboard-icon i{
+	margin-left: 5px;
+	transition: 0.5s;
+	text-decoration: none !important;
+}
+
+.dashboard-icon i:hover{
+	font-size: 32px;
+}
+
+#forum_reply_form{
+	margin-bottom: 120px;
+}
+
+.forum_thread_preview_card{
+	border: 1px black solid;
+	padding: 20px;
+}
+
+.forum-list-topic{
+	padding-left: 30px;
+}
+
+.forum-list{
+	list-style: none;
+}
+
+.forum-reply-to-reply-form{
+	display: none;
+	padding: 15px 0;
+}
+
+.forum-reply-thread{
+	border-left: 1px solid black;
+	margin-bottom: 15px;
+	padding-left: 15px;
+}
+
+.download-link:hover{
+	color:blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.forum-reply-to-reply{
+	margin-left: 30px;
+	border-left: 1px solid blue;
+}
+
+#group_thread_title{
+	width: 100%;
+	margin-bottom: 15px;
+	padding: 5px;
+}
+
+#group_thread_content{
+	width: 100%;
+	height: 300px;
+	resize: none;
+}
+
+#group_thread_file{
+	margin-bottom: 15px;
+}
+
+#group_thread_reply_form{
+	margin-top: 50px;
+}
+
+#group_thread_reply_content{
+	width: 100%;
+	height: 150px;
+	resize: none;
+}
+
+.preview-group{
+	display: inline-block;
+}
+
+.preview-group a div{
+	width: 225px;
+	background: black;
+	color: white;
+	text-align: center
+}
+
+.login-container{
+	text-align: center;
+	height: 80vh;
+}
+
+#loginform{
+	position: relative;
+	top: 15%;
+	border-radius: 15px;
+}
+
+#loginform i {
+	position: relative;
+	left: 25px;
+}
+
+#loginform h1{
+	margin-bottom: 60px;
+}
+
+.login_lable{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.login_input{
+	padding: 5px 5px 5px 30px;
+	width: 250px;
+}
+
+#regform{
+	text-align: center;
+}
+
+#myCarousel{
+	height: 60vh !important;
+}
+
+.center-svg{
+	transform: translate(33%, 0);
+}
+
+.marketing{
+	margin-top: 50px;
+}
