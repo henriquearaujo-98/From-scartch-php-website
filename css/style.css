@@ -1,3 +1,24 @@
+.back-to-personal{
+	text-align: center;
+	background: #6351ce;
+	color: white;
+	width: 180px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-33%, 0px);
+	box-shadow: white 0 0 12px;
+	border-radius: 15px;
+}
+
+.back-to-personal a{
+	color: white;
+	text-decoration: none !important;
+}
+
+.back-to-personal a:hover{
+	color: white !important;
+}
+
 .blog_post_preview_content{
 	white-space: nowrap;
 	overflow: hidden;
