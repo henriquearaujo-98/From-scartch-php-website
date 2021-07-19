@@ -188,19 +188,20 @@
 	if(isset($_POST['deleteFromTable'])){
 		error_reporting(E_ERROR | E_PARSE);
 
-		if(isset($_SESSION['mock_role'])){
-		    if($_SESSION['mock_role'] != 'admin'){
-		        echo -1;
-		        return;
-            }
-        }else{
-		    return;
-        }
 
-		$ID = $_POST['id'];
+
+		$ID = intval($_POST['id']);
 		$table = $_POST['table'];
 
 		if($table == 'blog_post'){
+            if(isset($_SESSION['mock_role'])){
+                if($_SESSION['mock_role'] != 'admin'){
+                    echo -1;
+                    return;
+                }
+            }else{
+                return;
+            }
 			$query = "SELECT `ID`, `image_name` FROM `blog_post` WHERE ID = '$ID'";
 			$result = mysqli_query($conn, $query);
 
@@ -226,7 +227,32 @@
 			}
 			
 
-		}else{
+		}else if($table == 'forum_thread'){
+
+		    $query = "SELECT user_ID FROM forum_thread WHERE ID = '$ID'";
+            $result = mysqli_query($conn, $query);
+            if(mysqli_num_rows($result) > 0) {
+
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    $userID = $row['user_ID'];
+                }
+            }else{
+                echo 0;
+                mysqli_close($conn);
+                return;
+            }
+
+            if(isset($_SESSION['mock_role'])){
+                if($_SESSION['mock_role'] != 'admin'){
+                    if( $_SESSION['mock_ID'] != $userID){
+                        echo -1;
+                        return;
+                    }
+                }
+            }else{
+                return;
+            }
 
 				$query = "DELETE FROM ".$table." WHERE ID='$ID'";
 				$result = mysqli_query($conn, $query);
@@ -237,7 +263,18 @@
 					echo 1;
 				}
 
-		}
+		}else{
+
+            $query = "DELETE FROM ".$table." WHERE ID='$ID'";
+            $result = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($result) > 0){
+                echo mysqli_error($conn);
+            }else{
+                echo 1;
+            }
+
+        }
 		
 	}
 

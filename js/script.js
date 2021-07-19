@@ -113,6 +113,7 @@ $( document ).ready(function() {
 				},
 
 				success: (res)=>{
+					console.log(res);
 					if(res == -1){
 						Message('red', 'You do not have permission to complete this action.');
 						return;
