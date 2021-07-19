@@ -43,7 +43,7 @@ if(isset($_GET['editbp']) && isset($_SESSION['mock_role'])){
 
     if ($_SESSION['mock_role'] != 'user') {
 ?>
-        <div class="container">
+<div class="container">
 	<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = 'post' id="edit_blog_post_form">
 		<label>Category</label><br>
 		<select name="Category" id="edit_blog_post_category" class="form-select" style="width: 25%">
@@ -101,6 +101,7 @@ if(isset($_GET['editbp']) && isset($_SESSION['mock_role'])){
         }
     }
     ?>
+ <div class="container">
 	<h1><?php echo $title; ?></h1>
 	<br>
 	<article><?php echo $content; ?></article>
@@ -153,6 +154,7 @@ if(isset($_GET['editbp']) && isset($_SESSION['mock_role'])){
 <?php }else{?>
 
 <small><span>You must be <a href="login.php">logged in</a> to create a new thread.<br> Don't have an account? Sign up <a href="signup.php">here</a></span></small><br>
+        </div>
         </div>
 
 <?php

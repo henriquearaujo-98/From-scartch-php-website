@@ -55,18 +55,22 @@ if(!isset($_GET['editThread'])){
 
 				while($row = mysqli_fetch_assoc($result)){
 
-					$author_id = $row['user_ID'];
+					$author_id = intval($row['user_ID']);
 					$topic = $row['forum_topic_ID'];
 					$title = $row['title'];
 					$content = $row['content'];
 				}
 		}
 
-		if($author_id != $_SESSION['mock_ID'] || $_SESSION['mock_role'] == 'user'){
-			header("Location: index.php");
+		if($author_id != intval($_SESSION['mock_ID'])){
+            header('Location: index.php');
 			die();
 			return;
-		}
+		}else if($author_id != intval($_SESSION['mock_ID'])){
+            header('Location: index.php');
+            die();
+            return;
+        }
 ?>
 
 	<div class="container">

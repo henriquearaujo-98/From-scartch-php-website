@@ -44,7 +44,7 @@ if(isset($_SESSION['mock_role']) || isset($_SESSION['mock_ID']))
 		if($status == 0)
 			echo "<button class='btn btn-warning' style='color:white' id='admin_close_thread_".$threadID."'>Close</button>";
 
-		echo "<button class='btn btn-primary'  id='admin_edit_thread_".$threadID."'><a style='color:white' href='forum_create_thread.php?editThread=".$threadID."'>Edit</a></button>";
+		echo "<a style='color:white' href='forum_create_thread.php?editThread=".$threadID."'><button class='btn btn-primary'  id='admin_edit_thread_".$threadID."'>Edit</button></a>";
 	}
 
 	

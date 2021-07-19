@@ -17,6 +17,7 @@ if(isset($_GET['userid'])){
 			$date = $row['date'];
 			$profile_image = $row['profile_image'];
 			$accepted = $row['accepted'];
+			$bio = $row['bio'];
 		}
 	}else{
 		Header("Location: includes/404.php");
@@ -49,7 +50,11 @@ if(isset($_GET['userid'])){
         </div>
         <div class="col-md-8">
             <p id='profile_show_bio'>
-
+                <?php
+                if(!empty($bio)){
+                    echo $bio;
+                }
+                ?>
             </p>
         </div>
     </div>
@@ -109,8 +114,12 @@ if(isset($_GET['userid'])){
 ?>
 
 		<p id='profile_show_bio'>
-				
-			</p>
+            <?php
+            if(!empty($bio)){
+                echo $bio;
+            }
+            ?>
+		</p>
 
 		<hr>
 		<h2>User threads</h2>

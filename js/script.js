@@ -42,34 +42,6 @@ $( document ).ready(function() {
 		});
 	}
 
-	function pagination(btn_prefix, btn_id, elPrefix){
-
-		$("#"+btn_prefix+btn_id).on('click', ()=>{
-			var i = 0;
-			console.log(btn_id);
-
-			for(i = btn_id + 1; i > 0; i--){
-				$("#"+elPrefix+i).fadeOut();
-				console.log("Hidding " + elPrefix+i);
-			}
-
-			for(i = btn_id + 2; i < (btn_id+5); i++){
-				$("#"+elPrefix+i).fadeIn();
-				console.log("Showing " + elPrefix+i);
-			}
-
-		});
-	}
-
-
-
-
-
-
-
-
-
-
 
 	/*---------------------------------------*/
 	/*-----------BACK END------------*/
@@ -78,7 +50,7 @@ $( document ).ready(function() {
 	/*---------------------------------------*/
 	/*-----------Common functions------------*/
 	/*---------------------------------------*/
-	$.urlParam = function(name){			//para arranjar a variável do url
+	$.urlParam = function(name){			//get url parameter
 		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 		return results[1] || 0;
 	}
@@ -102,8 +74,6 @@ $( document ).ready(function() {
 
 	}else if(filename.includes('profile.php')){
 		profile_showUserForumThreads();
-		profile_showBio();
-
 	}
 	
 	function Message(color, text){
@@ -1371,6 +1341,8 @@ $( document ).ready(function() {
 						Message('red', 'Could not submit category.');
 					}else if(res == -1){
 						Message('red', 'There can not be two equally named blog categories');
+					}else{
+						Message('red', res);
 					}
 				}
 			});

@@ -476,6 +476,16 @@
 	/*------------ Create new blog category ----------------*/
 	if(isset($_POST['submit_new_blog_category'])){
 		error_reporting(E_ERROR | E_PARSE);
+        if(isset($_SESSION['role'])){
+            if($_SESSION['role'] != 'admin'){
+                echo 'You do not have permission to complete this action.';
+                return;
+            }
+        }else{
+            echo 'It appears you are not logged in';
+            return;
+        }
+
 		$cat = $_POST['category'];
 
 		$query = "SELECT category FROM blog_category WHERE name = '$cat'";
@@ -539,6 +549,16 @@
 
 	/*------------ Publish new blog posts ----------------*/
 	if(isset($_POST['publishBlogPost'])){
+
+	    if(isset($_SESSION['role'])){
+	        if($_SESSION['role'] != 'admin'){
+	            echo 'You do not have permission to complete this action.';
+	            return;
+            }
+        }else{
+            echo 'It appears you are not logged in';
+	        return;
+        }
 
 		if($_FILES["file"]["name"] != ''){
 	            $test = explode(".", $_FILES["file"]["name"]);

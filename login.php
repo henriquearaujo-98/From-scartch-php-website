@@ -7,6 +7,9 @@ if(isset($_SESSION['mock_email'])){
 ?>
 
 <div class="login-container">
+    <div class="alert alert-warning" role="alert">
+        You can login with alicebrown@example.com and password 123.
+    </div>
     <form onsubmit="return false;" id="loginform">
         <div style="width: 33%; margin: auto">
             <h1>Log in</h1>
